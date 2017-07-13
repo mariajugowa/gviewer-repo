@@ -1,0 +1,16 @@
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:name=".DebugGViewerApplication"
+        tools:replace="android:name">
+        <activity android:name=".view.DebugInfoActivity"/>
+        <activity
+                android:name="ru.geekbrains.gviewer.view.InfoActivity"
+                tools:node="remove"/>
+        <activity-alias
+                android:name="ru.geekbrains.gviewer.Launcher"
+                android:targetActivity=".view.DebugInfoActivity"
+                tools:replace="android:targetActivity"/>
+    </application>
+</manifest>

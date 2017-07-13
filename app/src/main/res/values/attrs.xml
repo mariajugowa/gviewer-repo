@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="AvatarImageBehavior">
+        <attr name="finalHeight" format="dimension"/>
+    </declare-styleable>
+</resources>

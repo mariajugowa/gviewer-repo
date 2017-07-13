@@ -1,0 +1,39 @@
+<FindBugsFilter>
+  <Match>
+    <Package name="~.*\.model\.entity"/>
+    <Bug pattern="UWF_UNWRITTEN_FIELD" type="UWF_UNWRITTEN_FIELD"/>
+  </Match>
+  <Match>
+    <Class name="~.*RealmProxy"/>
+  </Match>
+  <Match>
+    <Class name="~.*\$[0-9]+"/>
+    <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON"/>
+  </Match>
+  <Match>
+    <Class name="~.*Test"/>
+  </Match>
+  <Match>
+    <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/>
+  </Match>
+  <!-- Do not check auto-generated resources classes -->
+  <Match>
+    <Class name="~.*R\$.*"/>
+  </Match>
+  <!-- Do not check auto-generated manifest classes -->
+  <Match>
+    <Class name="~.*Manifest\$.*"/>
+  </Match>
+  <!-- Ignore UPM in lambdas from Retrolambda, FindBugs does not correctly understand them -->
+  <Match>
+    <Bug code="UPM"/>
+    <Class name="~.*\$\$Lambda\$.*"/>
+  </Match>
+  <!-- Ignore Butterknife auto-generated classes -->
+  <Match>
+    <Class name="~.*\$\$ViewBinder*"/>
+  </Match>
+  <Match>
+    <Class name="~.*\$\$ViewBinder\$InnerUnbinder*"/>
+  </Match>
+</FindBugsFilter>

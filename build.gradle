@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        jcenter()
+		maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.novoda:gradle-android-command-plugin:1.6.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.1'
+        classpath 'me.tatarka:gradle-retrolambda:3.3.0'
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+        classpath 'io.realm:realm-gradle-plugin:2.0.2'
+		classpath 'io.fabric.tools:gradle:1.+'
+    }
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+}
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+}
+subprojects {
+    afterEvaluate {
+        tasks.findByName('findbugs').dependsOn('assemble')
+        def checkTask = tasks.findByName('check')
+        ['pmd', 'findbugs', 'checkstyle'].collect { checkTask.dependsOn(it) }
+    }
+}

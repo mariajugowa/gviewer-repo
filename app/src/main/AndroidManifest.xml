@@ -1,0 +1,25 @@
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="ru.geekbrains.gviewer">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+            android:name=".GViewerApplication"
+            android:allowBackup="false"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.AppTheme">
+        <activity android:name=".view.InfoActivity"/>
+        <activity-alias android:name="ru.geekbrains.gviewer.Launcher"
+            android:targetActivity=".view.InfoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="---your key here---(you need registration on the crashlytics site)" />
+    </application>
+</manifest>

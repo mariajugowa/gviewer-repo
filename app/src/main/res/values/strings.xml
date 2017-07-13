@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Viewer for GitHub</string>
+    <string name="info_current_company">Currently working at %s</string>
+</resources>
